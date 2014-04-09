@@ -1,0 +1,3 @@
+content tuttoolbar chrome/content/
+overlay chrome://browser/content/browser.xul chrome://tuttoolbar/content/tuttoolbar.xul
+skin tuttoolbar classic/1.0 chrome/skin/
