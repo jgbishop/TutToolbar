@@ -1,8 +1,33 @@
 var objTutorialToolbar = {
-	////////////////////////////////////////////////////////////////////////////
-	// The ConvertTermsToURI() function converts an incoming string of search
-	// terms to a safe value for passing into a URL.
-	////////////////////////////////////////////////////////////////////////////
+	
+	/** 
+	 * The CombinedSearch() function handles searches sent by the combined 
+	 * search button, demonstrating how events bubble up through DOM nodes.
+	 */
+	CombinedSearch: function(event)
+	{
+		// Default the search type to "web"
+		var type = "web";
+		
+		// Get the search type from either the menuitem the user selected,
+		// or from the combined search button itself
+		if(event.target.nodeName == "menuitem")
+			type = event.target.getAttribute("searchType");
+		else
+		{
+			var button = document.getElementById("TutTB-Combined-Button");
+			type = button.getAttribute("searchType");
+		}
+		
+		// Perform the actual search
+		this.Search(event, type);
+	},
+
+	
+	/**
+	 * The ConvertTermsToURI() function converts an incoming string of search 
+	 * terms to a safe value for passing into a URL. 
+	 */
 	ConvertTermsToURI: function(terms)
     {
         // Create an array to hold each search term
@@ -18,20 +43,20 @@ var objTutorialToolbar = {
         return termArray.join("+");
     },
     
-    ////////////////////////////////////////////////////////////////////////////
-    // The DoEncode() function gets called on an array of search terms. Each
-    // incoming term is encoded, for use in a URL.
-    ////////////////////////////////////////////////////////////////////////////
+	/**
+	 * The DoEncode() function gets called on an array of search terms. Each 
+	 * incoming term is encoded, for use in a URL. 
+	 */
     DoEncode: function(element, index, array)
     {
         // Modify the array element by calling encodeURIComponent on it
         array[index] = encodeURIComponent(element);
     },
 
-	////////////////////////////////////////////////////////////////////////////
-	// The KeyHandler() function checks to see if the key that was pressed
-	// is the [Enter] key. If it is, a web search is performed.
-	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * The KeyHandler() function checks to see if the key that was pressed 
+	 * is the [Enter] key. If it is, a web search is performed. 
+	 */
 	KeyHandler: function(event)
 	{
 		// Was the key that was pressed [ENTER]? If so, perform a web search.
@@ -39,23 +64,23 @@ var objTutorialToolbar = {
 			this.Search(event, 'web');
 	},
 
-	////////////////////////////////////////////////////////////////////////////
-	// The LoadURL() function loads the specified URL in the browser.
-	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * The LoadURL() function loads the specified URL in the browser.
+	 */
 	LoadURL: function(url)
 	{
 		// Set the browser window's location to the incoming URL
-		window._content.document.location = url;
+		window.content.document.location = url;
 	
 		// Make sure that we get the focus
 		window.content.focus();
 	},
 
-	////////////////////////////////////////////////////////////////////////////
-	// The Populate() function places dynamically generated menu items inside
-	// our toolbar's search box drop-down menu. Although this sample isn't very
-	// practical, it demonstrates how dynamic menu population works.
-	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * The Populate() function places dynamically generated menu items inside 
+	 * our toolbar's search box drop-down menu. Although this sample isn't very 
+	 * practical, it demonstrates how dynamic menu population works. 
+	 */
 	Populate: function()
 	{
 		// Get the menupopup element that we will be working with
@@ -83,11 +108,11 @@ var objTutorialToolbar = {
 		}
 	},
 
-	////////////////////////////////////////////////////////////////////////////
-	// The Search() function will perform a Google search for us. The two
-	// parameters that get passed in are the event that triggered this function
-	// call, and the type of search to perform.
-	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * The Search() function will perform a Google search for us. The two 
+	 * parameters that get passed in are the event that triggered this function 
+	 *  call, and the type of search to perform.
+	 */
 	Search: function(event, type)
 	{
 		// This variable will hold the URL we will browse to
@@ -134,11 +159,11 @@ var objTutorialToolbar = {
 		this.LoadURL(URL);
 	},
 
-	////////////////////////////////////////////////////////////////////////////
-	// The TrimString() function will trim all leading and trailing whitespace
-	// from the incoming string, and convert all runs of more than one whitespace
-	// character into a single space. The altered string gets returned.
-	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * The TrimString() function will trim all leading and trailing whitespace 
+	 * from the incoming string, and convert all runs of more than one whitespace 
+	 * character into a single space. The altered string gets returned. 
+	 */
 	TrimString: function(string)
 	{
 		// If the incoming string is invalid, or nothing was passed in, return empty

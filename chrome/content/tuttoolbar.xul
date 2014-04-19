@@ -14,7 +14,7 @@
                  hidden="false" persist="hidden">
                  
             <toolbaritem flex="0">
-                <toolbarbutton id="TutTB-MainMenu" type="menu"
+                <toolbarbutton id="TutTB-MainMenu" type="menu" class="TutTB-HasIcon"
                                tooltiptext="Tutorial Toolbar Main Menu">
                     <menupopup>
                         <menuitem label="Google Home Page" accesskey="G"
@@ -44,23 +44,21 @@
             
             <toolbaritem flex="0">
             
-                <toolbarbutton id="TutTB-Combined-Button" label="Search"
-                               type="menu-button" tooltiptext="Combined Search"
-                               oncommand="objTutorialToolbar.Search(event, 'web')">
-                    <menupopup>
+                <toolbarbutton id="TutTB-Combined-Button" label="Search" class="TutTB-HasIcon"
+                               type="menu-button" tooltiptext="Combined Search" searchType="web"
+                               oncommand="objTutorialToolbar.CombinedSearch(event)">
+                    <menupopup oncommand="objTutorialToolbar.CombinedSearch(event); event.stopPropagation();">
                         <menuitem id="TutTB-Combined-Web" label="Web Search"
-                                  class="menuitem-iconic"
-                                  oncommand="objTutorialToolbar.Search(event, 'web'); event.stopPropagation();" />
+                                  class="menuitem-iconic TutTB-HasIcon" searchType="web" />
                     
                         <menuitem id="TutTB-Combined-Image" label="Image Search"
-                                  class="menuitem-iconic"
-                                  oncommand="objTutorialToolbar.Search(event, 'image'); event.stopPropagation();" />
+                                  class="menuitem-iconic TutTB-HasIcon" searchType="image" />
                     </menupopup>
                 </toolbarbutton>
                 
                 <toolbarseparator />
                 
-                <toolbarbutton id="TutTB-Web-Button" tooltiptext="Search the Web"
+                <toolbarbutton id="TutTB-Web-Button" tooltiptext="Search the Web" class="TutTB-HasIcon"
                                label="Web Search" oncommand="objTutorialToolbar.Search(event, 'web')" />
             </toolbaritem>
             

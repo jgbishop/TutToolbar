@@ -1,9 +1,13 @@
+.TutTB-HasIcon {
+	list-style-image: url("chrome://tuttoolbar/skin/image_sheet.png");
+}
+
 #TutTB-MainMenu {
-    list-style-image: url("chrome://tuttoolbar/skin/main.png");
+	-moz-image-region: rect(0px 16px 16px 0px);
 }
 
 #TutTB-Combined-Button {
-    list-style-image: url("chrome://tuttoolbar/skin/combined.png");
+	-moz-image-region: rect(0px 32px 16px 16px);
 }
 
 #TutTB-Combined-Button > .toolbarbutton-menubutton-button {
@@ -12,11 +16,11 @@
 
 #TutTB-Web-Button,
 #TutTB-Combined-Web {
-    list-style-image: url("chrome://tuttoolbar/skin/web.png");
+    -moz-image-region: rect(0px 48px 16px 32px);
 }
 
 #TutTB-Combined-Image {
-    list-style-image: url("chrome://tuttoolbar/skin/images.png");
+    -moz-image-region: rect(0px 64px 16px 48px);
 }
 
 #TutTB-ResizeBar {

@@ -8,14 +8,14 @@
         <!-- Required Items -->
         <em:id>tuttoolbar@borngeek.com</em:id>
         <em:name>Tutorial Toolbar</em:name>
-		<em:type>2</em:type>
-        <em:version>1.06</em:version>
+        <em:type>2</em:type>
+        <em:version>1.07</em:version>
 
         <em:targetApplication>
             <Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>4.0</em:minVersion>
-                <em:maxVersion>30.*</em:maxVersion>
+                <em:maxVersion>99.*</em:maxVersion> <!-- In practice, the maxVersion shouldn't be this large -->
             </Description>
         </em:targetApplication>
 
